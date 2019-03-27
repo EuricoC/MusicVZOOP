@@ -1,11 +1,11 @@
 {
-    "configurations": [
+    "configurations": 
+    [
         {
             "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
-            "mainClass": "Main",
-            "projectName": "MusicVZOOP_74a80bcc"
+            "mainClass": "sound.code.Main"
         }
     ]
 }

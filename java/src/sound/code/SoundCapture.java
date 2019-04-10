@@ -235,6 +235,73 @@ public class SoundCapture extends PApplet
 		}		
 	}
 
+	public void waves()
+	{
+
+		stroke(0,255,255,250);
+		strokeWeight(1);
+
+		for(int j = -1000; j<=1000; j+=200)
+		{
+			for(int i = 0; i < player.bufferSize() - 1; i++)
+			{
+				float x1 = map( i, 0, player.bufferSize(), 0, width );
+				float x2 = map( i+1, 0, player.bufferSize(), 0, width );
+				line( x1, height + player.right.get(i)*50,j, x2, height + player.right.get(i+1)*50,j);
+			}
+		}
+
+		for(int j = -1000; j<=1000; j+=200)
+		{
+			for(int i = 0; i < player.bufferSize() - 1; i++)
+			{
+				float x1 = map( i, 0, player.bufferSize(), 0, width );
+				float x2 = map( i+1, 0, player.bufferSize(), 0, width );
+				line( x1, 0 + player.right.get(i)*50,j, x2, 0 + player.right.get(i+1)*50,j);
+			}
+		}
+
+		for(int j = height; j>=0; j-=height/5)
+		{
+			for(int i = 0; i < player.bufferSize() - 1; i++)
+			{
+				float x1 = map( i, 0, player.bufferSize(), 0, width );
+				float x2 = map( i+1, 0, player.bufferSize(), 0, width );
+				line( x1, j + player.right.get(i)*50,1000, x2, j + player.right.get(i+1)*50,1000);
+			}
+		}
+
+		for(int j = height; j>50; j-=height/5)
+		{
+			for(int i = 0; i < player.bufferSize() - 1; i++)
+			{
+				float x1 = map( i, 0, player.bufferSize(), 0, width );
+				float x2 = map( i+1, 0, player.bufferSize(), 0, width );
+				line( x1, j + player.right.get(i)*50,-1000, x2, j + player.right.get(i+1)*50,-1000);
+			}
+		}
+
+		for(int j = height; j>=0; j-=height/5)
+		{
+			for(int i = 0; i < player.bufferSize() - 1; i++)
+			{
+				float z1 = map( i, -1000, player.bufferSize(), -3000, 1000 );
+				float z2 = map( i+1, -1000, player.bufferSize(), -3000, 1000 );
+				line( 0, j + player.right.get(i)*50,z1, 0, j + player.right.get(i+1)*50,z2);
+			}
+		}
+		
+		for(int j = height; j>=0; j-=height/5)
+		{
+			for(int i = 0; i < player.bufferSize() - 1; i++)
+			{
+				float z1 = map( i, -1000, player.bufferSize(), -3000, 1000 );
+				float z2 = map( i+1, -1000, player.bufferSize(), -3000, 1000 );
+				line( width, j + player.right.get(i)*50,z1, width, j + player.right.get(i+1)*50,z2);
+			}
+		}
+
+	}
 	
 
 
@@ -316,5 +383,8 @@ public class SoundCapture extends PApplet
 		//10
 		fill(153,0,153,100);
 		incube(x+2*s,y+(s/2) - s/2, z,lerpedBands[9]/10, ry, rx);
+
+		waves();
+
 	}
 }

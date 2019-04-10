@@ -117,32 +117,32 @@ public class SoundCapture extends PApplet
 			if(player.mix.get(j)>-0.8 && player.mix.get(j)<-0.5)
 			{
 				noFill();
-				stroke(player.mix.level()*255,0,player.mix.level()*220);
-				circle(x,y,(s*5) + j);
+				stroke(player.mix.level()*255);
+				circle(x,y,(s*6) + j);
 			}
 			if(player.mix.get(j)>0.7 && player.mix.get(j)<0.9)
 			{
 				noFill();
-				stroke(player.mix.level()*248,player.mix.level()*255,0);
-				circle(x,y,(s*5) + j);
+				stroke(player.mix.level()*255);
+				circle(x,y,(s*6) + j);
 			}
 			if(player.mix.get(j)>0.4 && player.mix.get(j)<0.6)
 			{
 				noFill();
-				stroke(0,player.mix.level()*247,player.mix.level()*255);
-				circle(x,y,(s*5) + j);
+				stroke(player.mix.level()*255);
+				circle(x,y,(s*6) + j);
 			}
 			if(player.mix.get(j)>-0.4 && player.mix.get(j)<-0.2)
 			{
 				noFill();
-				stroke(player.mix.level()*120,player.mix.level()*150,player.mix.level()*60);
-				circle(x,y,(s*5) + j);
+				stroke(player.mix.level()*255);
+				circle(x,y,(s*6) + j);
 			}
 			if(player.mix.get(j)>0.1 && player.mix.get(j)<0.25)
 			{
 				noFill();
-				stroke(player.mix.level()*255,player.mix.level()*63,player.mix.level()*4);
-				circle(x,y,(s*5) + j);
+				stroke(player.mix.level()*255);
+				circle(x,y,(s*6) + j);
 			}
 		}
 	}
@@ -207,7 +207,7 @@ public class SoundCapture extends PApplet
 			camera(cx,cy,cz,width/2,height/2,0,0,1,0);
 			cz+=2;
 			cx=cx - width/2 / 500;
-			cy=cy - height/2 /500;
+			cy=cy - height/2 / 500;
 		}
 		else if(cz==1000)
 		{
@@ -241,14 +241,15 @@ public class SoundCapture extends PApplet
 	public void draw()
 	{			
 		background(0);
+
 		lights();
 		directionalLight(255, 255, 255, 1, 0, 0);
 		directionalLight(255, 255, 255, 1, 0, 1);
 		directionalLight(255, 255, 255, -1, 0, 0);
 		directionalLight(255, 255, 255, 1, 0, 1);
+
 		cam();
-		
-		//rings();
+		rings();
 
 		fft.window(FFT.HAMMING);
 		fft.forward(player.mix);
@@ -261,50 +262,59 @@ public class SoundCapture extends PApplet
 
 		
 		//hexa(0+s,y,z,s/10,ry,rx);
-		cube(x,y+s,z,s,0,0);
-		cube(x,y,z,s,0,0);
-		cube(x-s,y+(s*1.5f),z,s,0,0);
-		cube(x-s,y+(s/2),z,s,0,0);
-		cube(x-s,y-(s/2),z,s,0,0);
+		cube(x,y+s - s/2,z,s,0,0);
+		cube(x,y - s/2,z,s,0,0);
+		cube(x-s,y+(s*1.5f) - s/2,z,s,0,0);
+		cube(x-s,y+(s/2) - s/2,z,s,0,0);
+		cube(x-s,y-(s/2) - s/2,z,s,0,0);
 
-		cube(x-2*s,y+(s/2),z,s,0,0);
-		cube(x+s,y+(s*1.5f),z,s,0,0);
-		cube(x+s,y+(s/2),z,s,0,0);
-		cube(x+s,y-(s/2),z,s,0,0);
-		cube(x+2*s,y+(s/2),z,s,0,0);
+		cube(x-2*s,y+(s/2) - s/2,z,s,0,0);
+		cube(x+s,y+(s*1.5f) - s/2,z,s,0,0);
+		cube(x+s,y+(s/2) - s/2,z,s,0,0);
+		cube(x+s,y-(s/2) - s/2,z,s,0,0);
+		cube(x+2*s,y+(s/2) - s/2,z,s,0,0);
 		
 
 		stroke(0);
-		fill(255,0,0,100);
-		incube(x,y+s,z,lerpedBands[0]/10, ry, rx);
-		incube(x,y+s,z,lerpedBands[0]/10, -ry, -rx);
-		fill(255,0,239,100);
-		incube(x, y, z,lerpedBands[1]/10, ry, rx);
-		incube(x, y, z,lerpedBands[1]/10, -ry, -rx);
-		fill(255,144,144,100);
-		incube(x-s,y+(s*1.5f), z,lerpedBands[2]/10, ry, rx);
-		incube(x-s,y+(s*1.5f), z,lerpedBands[2]/10, -ry, -rx);
-		fill(255,237,144,100);
-		incube(x-s,y+(s/2), z,lerpedBands[3]/10, ry, rx);
-		incube(x-s,y+(s/2), z,lerpedBands[3]/10, -ry, -rx);
-		fill(226,144,255,100);
-		incube(x-s,y-(s/2), z,lerpedBands[4]/10, ry, rx);
-		incube(x-s,y-(s/2), z,lerpedBands[4]/10, -ry, -rx);
-
-		fill(0,255,247,100);
-		incube(x-2*s,y+(s/2), z,lerpedBands[5]/10, ry, rx);
-		incube(x-2*s,y+(s/2), z,lerpedBands[5]/10, -ry, -rx);
-		fill(255,137,0,100);
-		incube(x+s,y+(s*1.5f), z,lerpedBands[6]/10, ry, rx);
-		incube(x+s,y+(s*1.5f), z,lerpedBands[6]/10, -ry, -rx);
-		fill(0,255,0,100);
-		incube(x+s,y+(s/2), z,lerpedBands[7]/10, ry, rx);
-		incube(x+s,y+(s/2), z,lerpedBands[7]/10, -ry, -rx);
+		//1
+		fill(64,64,64,100);
+		incube(x,y+s - s/2,z,lerpedBands[0]/10, ry, rx);
+		incube(x,y+s - s/2,z,lerpedBands[0]/10, -ry, -rx);
+		//2
 		fill(224,224,224,100);
-		incube(x+s,y-(s/2), z,lerpedBands[8]/10, ry, rx);
-		incube(x+s,y-(s/2), z,lerpedBands[8]/10, -ry, -rx);
-		fill(169,187,255,100);
-		incube(x+2*s,y+(s/2), z,lerpedBands[9]/10, ry, rx);
-		incube(x+2*s,y+(s/2), z,lerpedBands[9]/10, -ry, -rx);	
+		incube(x, y - s/2, z,lerpedBands[1]/10, ry, rx);
+		incube(x, y - s/2, z,lerpedBands[1]/10, -ry, -rx);
+		incube(x+2*s,y+(s/2) - s/2, z,lerpedBands[9]/10, -ry, -rx);
+		//3
+		fill(255,0,255,100);
+		incube(x-s,y+(s/2) - s/2, z,lerpedBands[3]/10, ry, rx);
+		incube(x-s,y+(s/2) - s/2, z,lerpedBands[3]/10, -ry, -rx);
+		//4
+		fill(255,0,73,100);
+		incube(x-s,y-(s/2) - s/2, z,lerpedBands[4]/10, ry, rx);
+		incube(x-s,y-(s/2) - s/2, z,lerpedBands[4]/10, -ry, -rx);
+		//5
+		fill(111,255,0,100);
+		incube(x-s,y+(s*1.5f) - s/2, z,lerpedBands[2]/10, ry, rx);
+		incube(x-s,y+(s*1.5f) - s/2, z,lerpedBands[2]/10, -ry, -rx);
+		//6
+		fill(209,255,0,100);
+		incube(x-2*s,y+(s/2) - s/2, z,lerpedBands[5]/10, ry, rx);
+		incube(x-2*s,y+(s/2) - s/2, z,lerpedBands[5]/10, -ry, -rx);	
+		//7
+		fill(0,76,153,100);
+		incube(x+s,y+(s/2) - s/2, z,lerpedBands[7]/10, ry, rx);
+		incube(x+s,y+(s/2) - s/2, z,lerpedBands[7]/10, -ry, -rx);
+		//8
+		fill(255,116,0,100);
+		incube(x+s,y-(s/2) - s/2, z,lerpedBands[8]/10, ry, rx);
+		incube(x+s,y-(s/2) - s/2, z,lerpedBands[8]/10, -ry, -rx);
+		//9
+		fill(255,91,153,100);
+		incube(x+s,y+(s*1.5f) - s/2, z,lerpedBands[6]/10, ry, rx);
+		incube(x+s,y+(s*1.5f) - s/2, z,lerpedBands[6]/10, -ry, -rx);
+		//10
+		fill(153,0,153,100);
+		incube(x+2*s,y+(s/2) - s/2, z,lerpedBands[9]/10, ry, rx);
 	}
 }

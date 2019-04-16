@@ -35,18 +35,6 @@ public class Blocks
 		SoundCapture.popMatrix();
     }
 
-    public void sphe(float x,float y,float z,float s,float ry,float rx)
-	{
-		SoundCapture.pushMatrix();
-		SoundCapture.translate(x, y, z);
-		SoundCapture.rotateY(ry);
-		SoundCapture.rotateX(rx);
-		SoundCapture.strokeWeight(1);
-		SoundCapture.noStroke();
-		SoundCapture.sphere(s);
-		SoundCapture.popMatrix();
-    }
-
     public void formation(int x,int y,int z,int s,float ry,float rx)
 	{
 		SoundCapture.noFill();
@@ -70,10 +58,11 @@ public class Blocks
         SoundCapture.stroke(0);
 
         //1
-        if(lerpedBands[0]/10 > s - s/6)
+        if(lerpedBands[0]/10 > s - s/4)
         {
             SoundCapture.fill(64,64,64,100);
-            sphe(x,y+s - s/2,z,s/2, -ry, -rx);
+            incube(x,y+s - s/2,z,s - s/4, ry, rx);
+            incube(x,y+s - s/2,z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -83,10 +72,11 @@ public class Blocks
         }
 
         //2
-        if(lerpedBands[1]/10 > s - s/6)
+        if(lerpedBands[1]/10 > s - s/4)
         {
             SoundCapture.fill(224,224,224,100);
-            sphe(x, y - s/2, z,s/2, -ry, -rx);
+            incube(x, y - s/2, z,s - s/4, ry, rx);
+            incube(x, y - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -96,10 +86,11 @@ public class Blocks
         }
 
         //3
-        if(lerpedBands[3]/10 > s - s/6)
+        if(lerpedBands[3]/10 > s - s/4)
         {
             SoundCapture.fill(255,0,255,100);
-            sphe(x-s,y+(s/2) - s/2, z,s/2, -ry, -rx);
+            incube(x-s,y+(s/2) - s/2, z,s - s/4, ry, rx);
+            incube(x-s,y+(s/2) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -109,10 +100,11 @@ public class Blocks
         }
 
         //4
-        if(lerpedBands[4]/10 > s - s/6)
+        if(lerpedBands[4]/10 > s - s/4)
         {
             SoundCapture.fill(255,0,73,100);
-            sphe(x-s,y-(s/2) - s/2, z,s/2, -ry, -rx);
+            incube(x-s,y-(s/2) - s/2, z,s - s/4, ry, rx);
+            incube(x-s,y-(s/2) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -122,10 +114,11 @@ public class Blocks
         }
 
         //5
-        if(lerpedBands[2]/10 > s - s/6)
+        if(lerpedBands[2]/10 > s - s/4)
         {
             SoundCapture.fill(111,255,0,100);
-            sphe(x-s,y+(s*1.5f) - s/2, z,s/2, -ry, -rx);
+            incube(x-s,y+(s*1.5f) - s/2, z,s - s/4, ry, rx);
+            incube(x-s,y+(s*1.5f) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -135,10 +128,11 @@ public class Blocks
         }
 
         //6
-        if(lerpedBands[5]/10 > s - s/6)
+        if(lerpedBands[5]/10 > s - s/4)
         {
             SoundCapture.fill(209,255,0,100);
-            sphe(x-2*s,y+(s/2) - s/2, z,s/2, -ry, -rx);	
+            incube(x-2*s,y+(s/2) - s/2, z,s - s/4, ry, rx);
+            incube(x-2*s,y+(s/2) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -148,10 +142,11 @@ public class Blocks
         }
 
         //7
-        if(lerpedBands[7]/10 > s - s/6)
+        if(lerpedBands[7]/10 > s - s/4)
         {
             SoundCapture.fill(0,76,153,100);
-            sphe(x+s,y+(s/2) - s/2, z,s/2, -ry, -rx);
+            incube(x+s,y+(s/2) - s/2, z,s - s/4, ry, rx);
+            incube(x+s,y+(s/2) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -161,10 +156,11 @@ public class Blocks
         }
 
         //8
-        if(lerpedBands[8]/10 > s - s/6)
+        if(lerpedBands[8]/10 > s - s/4)
         {
             SoundCapture.fill(255,116,0,100);
-            sphe(x+s,y-(s/2) - s/2, z,s/2, -ry, -rx);
+            incube(x+s,y-(s/2) - s/2, z,s - s/4, ry, rx);
+            incube(x+s,y-(s/2) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -174,10 +170,11 @@ public class Blocks
         }
 
         //9
-        if(lerpedBands[6]/10 > s - s/6)
+        if(lerpedBands[6]/10 > s - s/4)
         {
             SoundCapture.fill(255,91,153,100);
-            sphe(x+s,y+(s*1.5f) - s/2, z,s/2, -ry, -rx);
+            incube(x+s,y+(s*1.5f) - s/2, z,s - s/4, ry, rx);
+            incube(x+s,y+(s*1.5f) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {
@@ -187,10 +184,11 @@ public class Blocks
         }
 
         //10
-        if(lerpedBands[9]/10 > s - s/6)
+        if(lerpedBands[9]/10 > s - s/4)
         {
             SoundCapture.fill(153,0,153,100);
-            sphe(x+2*s,y+(s/2) - s/2, z,s/2, -ry, -rx);
+            incube(x+2*s,y+(s/2) - s/2, z,s - s/4, ry, rx);
+            incube(x+2*s,y+(s/2) - s/2, z,s - s/4, -ry, -rx);
         }
         else
         {

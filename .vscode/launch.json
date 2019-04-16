@@ -7,6 +7,13 @@
             "request": "launch",
             "mainClass": "sound.code.Main",
             "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "sound.code.Main",
+            "projectName": "java"
         }
     ]
 }

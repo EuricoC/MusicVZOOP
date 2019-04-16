@@ -20,11 +20,17 @@ able to process the frequency coming straight from the computer and not
 from a file a few steps must be taken, so please follow these intructions :
 
 -Right-click the sound icon in the taskbar.
+
 -Select Open sound settings.
+
 -Choose Sound control panel on the right.
+
 -Select the Recording tab.
+
 -Enable Stereo Mix.
+
 -Disable microphone.
+
 -Enjoy the visuals.
 
 # How it works
@@ -32,6 +38,7 @@ from a file a few steps must be taken, so please follow these intructions :
  This project is a music visualizer that gets it's input put of spotify,
 I made this project hands free, so the only requeriment is for music to be 
 playing on the background.
+
  The program gets frequency inputs and uses them to set the size of shapes on the screen,
 this gives the user the impression of music to output reaction I was looking for,
 this with added camera movement and some nice effects gives this visualizer  a 

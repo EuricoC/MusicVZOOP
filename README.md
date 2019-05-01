@@ -44,6 +44,8 @@ this gives the user the impression of music to output reaction I was looking for
 this with added camera movement and some nice effects gives this visualizer  a 
 nice relaxing aspect.
 
+The most important class in this program are the SoundCapture which captures the sound comming from the computer and splits it into an array of different frequency bands, this array is then used in most the other classes to shift certain object properties at the same time as the song plays.
+
 # What I am most proud of in the assignment
  
  In this assignment some of the things I'm most proud of are the fact that the visualizer

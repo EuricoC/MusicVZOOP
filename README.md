@@ -51,4 +51,6 @@ The most important class in this program are the SoundCapture which captures the
  In this assignment some of the things I'm most proud of are the fact that the visualizer
 works out of spotify or any other song playing on the background of the computer and how
 relaxing and in sync with the music the visualizer appears.
-  
+
+# Demo
+[![YouTube]()](https://youtu.be/dCsXQX-CmrY)
